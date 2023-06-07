@@ -1,4 +1,5 @@
 const pool = require("../utils/database")
+const moment = require('moment');
 
 module.exports = {
     getAllData: async () => {
@@ -45,6 +46,8 @@ module.exports = {
                 createBy,
                 createOn
             } = data
+            const formattedTransactionDate = moment(transactionDate).format('YYYY-MM-DD HH:mm:ss')
+
             const query = `
                 INSERT INTO data (productID, productName, amount, customerName, status, transactionDate, createBy, createOn)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
@@ -56,7 +59,7 @@ module.exports = {
                 amount,
                 customerName,
                 status,
-                transactionDate,
+                formattedTransactionDate,
                 createBy,
                 createOn
             ]

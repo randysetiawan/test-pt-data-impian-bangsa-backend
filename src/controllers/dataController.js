@@ -13,7 +13,7 @@ module.exports = {
     getDataById: async (req, res) => {
         const { id } = req.params
         try {
-          const data = await dataModel.getDataById(id)
+          const data = await dataModel.getData(id)
           if (!data) {
             return res.status(404).json({ error: 'Data not found' })
           }
@@ -37,7 +37,7 @@ module.exports = {
         const { id } = req.params
         const data = req.body
         try {
-          const existingData = await dataModel.getDataById(id)
+          const existingData = await dataModel.getData(id)
           if (!existingData) {
             return res.status(404).json({ error: 'Data not found' })
           }
@@ -51,7 +51,7 @@ module.exports = {
       deleteData: async (req, res) => {
         const { id } = req.params
         try {
-          const existingData = await dataModel.getDataById(id)
+          const existingData = await dataModel.getData(id)
           if (!existingData) {
             return res.status(404).json({ error: 'Data not found' })
           }
