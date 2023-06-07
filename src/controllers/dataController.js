@@ -10,7 +10,7 @@ module.exports = {
         }
     },
 
-    getDataById: async (req, res) => {
+    getData: async (req, res) => {
         const { id } = req.params
         try {
           const data = await dataModel.getData(id)
