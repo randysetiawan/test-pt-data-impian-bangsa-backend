@@ -1,5 +1,5 @@
 const pool = require("../utils/database")
-const moment = require('moment');
+const moment = require('moment')
 
 module.exports = {
     getAllData: async () => {
